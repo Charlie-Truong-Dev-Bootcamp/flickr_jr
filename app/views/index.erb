@@ -1,0 +1,13 @@
+<div class="container">
+  <h1>Welcome to the Photo Dump</h1>
+  <h2>Albums</h2>
+  <table>
+    <% @albums.each do |album| %>
+      <tr>
+        <td><a href="/album/<%= album.id %>/photos"><%= album.name %></a></td> 
+        <td>by <a href="/users/<%= album.user.id %>/albums"><%=album.user.username%></a></td> 
+        <td>Last Updated: <%= album.updated_at.to_date%></td>
+      </tr>
+    <% end %>
+  </table>
+</div>

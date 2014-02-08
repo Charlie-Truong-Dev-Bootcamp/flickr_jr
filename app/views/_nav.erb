@@ -1,0 +1,16 @@
+<div class="container">
+  <nav>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <% if @user == nil %>
+        <li><a href="/sign-in">Sign-in</a></li>
+        <li><a href="/sign-up">Sign-up</a></li>
+      <% end %>
+      <% if @user != nil %>
+        <li><a href="/sign-out">Sign-out</a></li>
+        <li><a href="/users/<%= @user.id %>/albums">Your Albums</a></li>
+        <li><a href="/add_albums">Add Albums</a></li>
+      <% end %>
+    </ul>
+  </nav>
+</div>

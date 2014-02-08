@@ -1,0 +1,33 @@
+<div class="container">
+  <h1>Album: <%=@album.name%></h1>
+  <h2>Photos</h2>
+  <% if @album.user.id == session[:user_id] %>
+    <h3><a href="/album/<%=@album.id%>/upload">Upload Photos</a></h3>
+  <% end %>
+
+  <div class="carousel_frame">
+    <div class="carousel_controls">
+      <a href="#" id="previous_frame">&lt;</a>
+      <a href="#" id="next_frame">&gt;</a>
+    </div>
+
+    <div class="carousel">
+      <ul class="frames">
+        <% @photos.each do |photo| %>
+        <li>
+          <a href="<%= photo.file.url %>"><img src="<%= photo.file.thumb.url %>"/></a>
+        </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+
+
+  <div class= "photo">
+  <% @photos.each do |photo| %>
+    <a href="<%= photo.file.url %>"><img src="<%= photo.file.thumb.url %>"/></a>
+  <% end %>
+  </div>
+</div>
+
+<script src="/js/carousel.js"></script>
